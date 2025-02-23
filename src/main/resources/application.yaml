@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: spring-boot-kafka-manager-service
+  main:
+    banner-mode: #off
+  banner:
+    location: classpath:banner.txt
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: ACTUATOR_ADMIN
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic: kafka-demo
+    installation-directory: "C:\\Softwares\\Kafka\\kafka\\bin\\windows"
+    zookeeper-config-path: "C:\\Softwares\\Kafka\\kafka\\config\\zookeeper.properties"
+    kafka-config-path: "C:\\Softwares\\Kafka\\kafka\\config\\server.properties"
+    logs:
+      kafka-logs-path: "C:\\Logs\\Kafka\\kafka-data"
+      zookeeper-logs-path: "C:\\Logs\\Kafka\\zookeeper-data"
+    setup:
+      kafka-auto-setup-required: true
+      kafka-user-defined-path-required: false
+      kafka-user-defined-path: "C:\\Users\\Siddhant Patni\\Documents"
+  json:
+    trusted:
+      packages: "com.sid.app.model"
+
+server:
+  port: 8081
+
+audit:
+  connector:
+    url: http://localhost:8085/audit
+    username: audit
+    password: audit
+
+logging:
+  level:
+    root: INFO
+    com:
+      sid: INFO
